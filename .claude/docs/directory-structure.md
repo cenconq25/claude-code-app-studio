@@ -13,7 +13,7 @@ app_dev/
 ├── .claude/                        # Agent definitions, skills, hooks, rules, docs
 │   ├── settings.json               # Hook wiring, permissions, status line
 │   ├── statusline.sh               # Single-line breadcrumb renderer
-│   ├── agents/                     # 53 agent definition files
+│   ├── agents/                     # 54 agent definition files
 │   ├── skills/                     # Slash-command skill definitions
 │   ├── hooks/                      # Bash hooks (12 scripts)
 │   ├── rules/                      # Path-scoped coding rules

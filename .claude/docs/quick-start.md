@@ -3,7 +3,7 @@
 ## What You Have
 
 A Claude Code project pre-wired for shipping production mobile apps. The
-template includes 53 specialised subagents, a catalogue of slash-command
+template includes 54 specialised subagents, a catalogue of slash-command
 skills, path-scoped coding rules, and lifecycle hooks that audit every
 session, commit, and agent invocation. Out of the box it supports React
 Native, Flutter, native iOS, and native Android.
@@ -123,7 +123,7 @@ The full list is in `skills-reference.md`.
 CLAUDE.md                            -- Master config
 .claude/
   settings.json                      -- Hook wiring + permissions
-  agents/                            -- 53 agents
+  agents/                            -- 54 agents
   skills/                            -- Slash-command playbooks
   hooks/                             -- 12 bash hooks
   rules/                             -- Path-scoped coding rules

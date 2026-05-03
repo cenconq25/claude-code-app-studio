@@ -1,6 +1,6 @@
 # Agent Roster
 
-53 specialist agents are available. Each has a definition file in
+54 specialist agents are available. Each has a definition file in
 `.claude/agents/`. Pick the agent best matched to the task; when work
 spans multiple domains, the relevant department lead or the `producer`
 delegates to the correct specialists.
@@ -71,6 +71,7 @@ delegates to the correct specialists.
 | `database-specialist` | sonnet | Owns data storage on client and server — picks the right tool, designs schemas, plans migrations, tunes indexes. |
 | `graphql-specialist` | sonnet | Owns GraphQL specifics — schema design, persisted queries, federation, Apollo/Relay/urql cache strategies, optimistic updates, offline mutations. |
 | `firebase-specialist` | sonnet | Owns Firebase/Google Cloud usage — Auth, Firestore, FCM, Remote Config, App Check, Crashlytics, Analytics, Cloud Functions. |
+| `cloudflare-specialist` | sonnet | Owns Cloudflare platform usage end to end — Workers, Durable Objects, D1, R2, KV, Queues, Workflows, Vectorize, Hyperdrive, Workers AI, Agents SDK, Pages, Tunnel, DNS, WAF, and Wrangler. |
 | `offline-sync-specialist` | sonnet | Owns offline-first patterns — local write queues, background sync, conflict resolution (LWW, CRDT), idempotent mutations, network-aware UX. |
 
 ## Quality

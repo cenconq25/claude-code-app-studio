@@ -3,13 +3,13 @@
   <p align="center">
     Turn a single Claude Code session into a full mobile-app development studio.
     <br />
-    53 agents. 73 skills. 12 hooks. 11 rules. One coordinated AI team.
+    54 agents. 73 skills. 12 hooks. 11 rules. One coordinated AI team.
   </p>
 </p>
 
 <p align="center">
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="MIT License"></a>
-  <a href=".claude/agents"><img src="https://img.shields.io/badge/agents-53-blueviolet" alt="53 Agents"></a>
+  <a href=".claude/agents"><img src="https://img.shields.io/badge/agents-54-blueviolet" alt="54 Agents"></a>
   <a href=".claude/skills"><img src="https://img.shields.io/badge/skills-73-green" alt="73 Skills"></a>
   <a href=".claude/hooks"><img src="https://img.shields.io/badge/hooks-12-orange" alt="12 Hooks"></a>
   <a href=".claude/rules"><img src="https://img.shields.io/badge/rules-11-red" alt="11 Rules"></a>
@@ -22,7 +22,7 @@
 
 Shipping a mobile app from a single AI chat is a bad idea — and most people who try it find out the hard way. The chat will happily write a `LoginScreen.tsx` that hardcodes the API key, ships strings the localization team can't see, and leans on an `AsyncStorage` call that will fail App Store Review for storing a password. There is no PRD, no architecture review, no accessibility pass, no privacy nutrition label, no release manager. The result is fast on Monday and rejected on Friday.
 
-This template fixes the structural gap. Instead of one general-purpose assistant, your session has **53 mobile-specific subagents** organised the way a real studio is — a product director who owns vision, a mobile architect who owns the technical spine, leads who own departments, and specialists who handle Swift concurrency, Compose recomposition, push permissions, ATT prompts, Play Data Safety forms, MASVS compliance, and the hundred other things that separate a working prototype from a shippable app. Each agent has a narrow lane, a clear escalation path, and a quality gate. You stay the studio head; the agents do the legwork and surface decisions back to you.
+This template fixes the structural gap. Instead of one general-purpose assistant, your session has **54 mobile-specific subagents** organised the way a real studio is — a product director who owns vision, a mobile architect who owns the technical spine, leads who own departments, and specialists who handle Swift concurrency, Compose recomposition, push permissions, ATT prompts, Play Data Safety forms, MASVS compliance, and the hundred other things that separate a working prototype from a shippable app. Each agent has a narrow lane, a clear escalation path, and a quality gate. You stay the studio head; the agents do the legwork and surface decisions back to you.
 
 ---
 
@@ -48,7 +48,7 @@ This template fixes the structural gap. Instead of one general-purpose assistant
 
 | Category | Count | Description |
 |---|---|---|
-| **Agents** | 53 | Specialist subagents covering product, design, engineering (RN / Flutter / iOS / Android / backend), QA, security, performance, growth, live-ops, release, and tooling |
+| **Agents** | 54 | Specialist subagents covering product, design, engineering (RN / Flutter / iOS / Android / backend / Cloudflare edge), QA, security, performance, growth, live-ops, release, and tooling |
 | **Skills** | 73 | Slash commands wired to every phase of the lifecycle (`/start`, `/setup-framework`, `/design-system`, `/create-epics`, `/dev-story`, `/release-checklist`, `/team-*` orchestrators, etc.) |
 | **Hooks** | 12 | Bash scripts that run on session lifecycle, commits, pushes, asset writes, agent spawns, and compaction events |
 | **Rules** | 11 | Path-scoped coding standards for RN, Flutter, Swift, Kotlin, UI surfaces, tests, design docs, content, and prototypes |
@@ -56,7 +56,7 @@ This template fixes the structural gap. Instead of one general-purpose assistant
 
 ## Studio Hierarchy
 
-The 53 agents follow a three-tier structure modelled on a real product org. Tier 1 directors set direction; Tier 2 leads own departments; Tier 3 specialists do the work.
+The 54 agents follow a three-tier structure modelled on a real product org. Tier 1 directors set direction; Tier 2 leads own departments; Tier 3 specialists do the work.
 
 ```
 Tier 1 — Directors (Opus)
@@ -83,7 +83,8 @@ Tier 3 — Engineering, Android
 
 Tier 3 — Engineering, Backend & Data
   backend-engineer        api-designer            database-specialist
-  graphql-specialist      firebase-specialist     offline-sync-specialist
+  graphql-specialist      firebase-specialist     cloudflare-specialist
+  offline-sync-specialist
 
 Tier 3 — Quality, Security, Performance
   qa-lead                 qa-tester               mobile-test-automation
@@ -242,7 +243,7 @@ app_dev/
 ├── .claude/
 │   ├── settings.json                 # Hook wiring, permissions, status line
 │   ├── statusline.sh                 # Single-line breadcrumb renderer
-│   ├── agents/                       # 53 agent definition files
+│   ├── agents/                       # 54 agent definition files
 │   ├── skills/                       # 73 slash-command skill definitions
 │   ├── hooks/                        # 12 bash hook scripts
 │   ├── rules/                        # 11 path-scoped coding rules

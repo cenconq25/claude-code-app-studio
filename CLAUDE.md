@@ -1,6 +1,6 @@
 # Claude Code App Studios -- Mobile App Studio Agent Architecture
 
-A coordinated team of 53 Claude Code subagents that build, ship, and operate
+A coordinated team of 54 Claude Code subagents that build, ship, and operate
 mobile apps end to end. Each agent owns a narrow slice of the lifecycle so
 that responsibility, expertise, and review checkpoints stay separated and
 observable.

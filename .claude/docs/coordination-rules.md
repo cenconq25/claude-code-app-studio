@@ -1,6 +1,6 @@
 # Agent Coordination Rules
 
-These rules define how the 53 agents work together. They are not optional —
+These rules define how the 54 agents work together. They are not optional —
 the entire template assumes that agents respect the hierarchy, escalate
 disagreements rather than making unilateral calls, and document every
 decision in the appropriate file.
