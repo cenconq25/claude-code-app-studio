@@ -1,0 +1,35 @@
+# Technical Requirement ID Registry
+#
+# PURPOSE: Stable, permanent IDs for every PRD requirement that an ADR or
+# story needs to reference. Decoupling the ID from the requirement text
+# means PRDs can be reworded without breaking the chain
+# PRD -> ADR -> story -> test.
+#
+# RULES:
+#   - IDs are PERMANENT. Never renumber, never delete (use status: deprecated).
+#   - New entries are appended only — never inserted between existing rows.
+#   - When a PRD line is reworded but the intent is identical: keep the ID,
+#     update `requirement`, and stamp `revised` with the date.
+#   - When a PRD line is removed: set status to `deprecated`.
+#   - When a PRD line is split or replaced: set status to
+#     `superseded-by: TR-[system]-NNN` pointing at the replacement IDs.
+#
+# WRITTEN BY: /architecture-review (appends new rows; never rewrites existing IDs)
+# READ BY:
+#   /create-stories       — embeds the active IDs in story files
+#   /story-readiness      — checks that referenced IDs exist and are active
+#   /story-done           — looks up the current requirement text at sign-off
+#   /architecture-review  — flags PRD lines that lack an active ID
+#   /propagate-design-change — finds ADRs and stories that reference a TR
+#                              whose requirement text just changed
+#
+# ID FORMAT: TR-[system-slug]-NNN
+#   system-slug — short slug matching the PRD filename in design/prd/
+#   NNN         — three-digit zero-padded sequence per system, starting at 001
+#
+# STATUS VALUES: active | deprecated | superseded-by: TR-[system]-NNN
+
+version: 1
+last_updated: ""
+
+requirements: []
