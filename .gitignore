@@ -1,10 +1,120 @@
-# macOS
-.DS_Store
+# Dependencies
+node_modules/
+.pnp/
+.pnp.js
+bun.lockb
 
-# Editor
-.idea/
+# Build outputs
+dist/
+build/
+out/
+coverage/
+.nyc_output/
+.next/
+.turbo/
+.parcel-cache/
+
+# iOS
+ios/Pods/
+ios/build/
+ios/.xcode.env.local
+ios/Podfile.lock.bak
+*.xcworkspace/xcuserdata/
+*.xcodeproj/xcuserdata/
+*.xcodeproj/project.xcworkspace/xcuserdata/
+DerivedData/
+*.ipa
+*.dSYM.zip
+*.dSYM/
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/screenshots/
+fastlane/test_output/
+
+# Android
+android/build/
+android/app/build/
+android/.gradle/
+android/.idea/
+android/local.properties
+android/app/release/
+android/captures/
+*.apk
+*.aab
+*.keystore
+!debug.keystore
+key.properties
+
+# React Native / Expo
+.expo/
+.expo-shared/
+web-build/
+*.jsbundle
+metro.config.js.bak
+
+# Flutter / Dart
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+.packages
+.pub-cache/
+.pub/
+*.iml
+*.flutter-plugins
+*.flutter-plugins-dependencies
+flutter_export_environment.sh
+
+# Environment & secrets
+.env
+.env.local
+.env.*.local
+.env.development
+.env.staging
+.env.production
+*.pem
+*.p12
+*.mobileprovision
+google-services.json
+GoogleService-Info.plist
+firebase-debug.log
+
+# Editors / IDE
 .vscode/
+.idea/
 *.swp
+*.swo
+*~
+.cursor/
+
+# OS
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Desktop.ini
 
 # Logs
 *.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+.pnpm-debug.log*
+
+# Test artifacts
+*.lcov
+test-results/
+playwright-report/
+detox-artifacts/
+maestro-artifacts/
+junit.xml
+
+# Claude Code session artifacts
+production/session-state/active.md
+production/session-logs/
+.claude/agent-memory/*
+!.claude/agent-memory/.gitkeep
+
+# Temporary
+tmp/
+.cache/
+*.tmp

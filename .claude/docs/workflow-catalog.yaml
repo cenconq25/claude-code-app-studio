@@ -1,0 +1,188 @@
+# Workflow Catalog
+#
+# A YAML catalogue of common end-to-end workflows. Each workflow is a named
+# sequence of phases; each phase names the skill to invoke and a one-line
+# `when:` describing what the skill produces or validates at that step.
+# Skills like /help and /project-stage-detect read this file to suggest
+# "what's next?" given the current artefacts.
+#
+# Every skill referenced below exists in app_dev/.claude/skills/.
+# Add a workflow only after every step is implemented as a real skill.
+#
+# Schema:
+#   workflows:
+#     <workflow-id>:
+#       purpose: "..."
+#       phases:
+#         - skill: <skill-id>
+#           when: "..."
+
+workflows:
+
+  new-feature:
+    purpose: "Take a feature from idea to shipped, including review gates."
+    phases:
+      - skill: brainstorm
+        when: "Concept is fuzzy — convert to a structured concept doc."
+      - skill: design-system
+        when: "Author the feature's PRD section by section."
+      - skill: design-review
+        when: "Validate the PRD before architecture begins."
+      - skill: architecture-decision
+        when: "Capture each significant technical decision as an ADR."
+      - skill: architecture-review
+        when: "Confirm the ADR set covers every PRD requirement."
+      - skill: create-epics
+        when: "Translate PRD + architecture into one epic per module."
+      - skill: create-stories
+        when: "Decompose each epic into implementable stories."
+      - skill: sprint-plan
+        when: "Schedule the stories into a sprint at realistic capacity."
+      - skill: dev-story
+        when: "For each story, implement it end-to-end with tests."
+      - skill: code-review
+        when: "Review the implementation against ADR and standards."
+      - skill: story-done
+        when: "Verify acceptance criteria and mark the story Complete."
+      - skill: smoke-check
+        when: "Run the critical-path smoke gate before QA hand-off."
+      - skill: release-checklist
+        when: "Validate readiness to ship the feature in the next release."
+
+  bug-fix:
+    purpose: "Reproduce, fix, verify, and close a bug found in build or production."
+    phases:
+      - skill: bug-report
+        when: "Capture reproduction, severity, and device matrix."
+      - skill: bug-triage
+        when: "Re-evaluate priority and assign to a sprint or backlog."
+      - skill: dev-story
+        when: "Implement the fix as a story; pair with a regression test."
+      - skill: code-review
+        when: "Review the fix and the regression test."
+      - skill: smoke-check
+        when: "Confirm critical paths still pass after the fix."
+      - skill: story-done
+        when: "Verify acceptance criteria and close the story."
+
+  hotfix:
+    purpose: "Ship a critical fix outside the normal sprint cadence."
+    phases:
+      - skill: hotfix
+        when: "Open the hotfix branch, scope tightly, track approvals."
+      - skill: smoke-check
+        when: "Validate the hotfix on the critical path before shipping."
+      - skill: release-checklist
+        when: "Confirm certification and store metadata are still aligned."
+      - skill: patch-notes
+        when: "Author user-facing notes that respect store char limits."
+
+  release:
+    purpose: "Cut and ship a release candidate to the App Store and Play Console."
+    phases:
+      - skill: release-checklist
+        when: "Walk every certification and store-metadata checkpoint."
+      - skill: smoke-check
+        when: "Run critical-path smoke on the release candidate build."
+      - skill: soak-test
+        when: "Run a soak protocol to surface long-session leaks and crashes."
+      - skill: gate-check
+        when: "Synthesize all department phase-gate verdicts. PASS / CONCERNS / FAIL."
+      - skill: team-release
+        when: "Release-manager + qa-lead + mobile-devops + producer drive the rollout."
+      - skill: patch-notes
+        when: "Publish user-facing release notes."
+      - skill: changelog
+        when: "Produce internal and external changelogs for the version."
+
+  polish-cycle:
+    purpose: "Harden a feature or area to release quality."
+    phases:
+      - skill: perf-profile
+        when: "Measure cold start, frame time, memory, network against budgets."
+      - skill: security-audit
+        when: "Audit storage, TLS, MASVS, CVE exposure, deep-link handling."
+      - skill: ux-review
+        when: "Validate UX completeness, accessibility, platform conventions."
+      - skill: team-polish
+        when: "Coordinate performance, accessibility, animation, QA, copy."
+      - skill: smoke-check
+        when: "Confirm critical paths still pass post-polish."
+
+  live-ops-update:
+    purpose: "Plan and ship a post-launch content / event update."
+    phases:
+      - skill: team-live-ops
+        when: "Live-ops + monetization + analytics + community + content plan the update."
+      - skill: balance-check
+        when: "Check pricing, paywall, A/B variants, and flag values for drift."
+      - skill: patch-notes
+        when: "Draft user-facing notes for the live update."
+      - skill: changelog
+        when: "Record what shipped in the internal and external changelog."
+
+  localization-pass:
+    purpose: "Add a new locale or refresh existing ones."
+    phases:
+      - skill: localize
+        when: "Extract strings, manage tables, brief translators, validate."
+      - skill: ux-review
+        when: "Validate locale fits the UX — string length, RTL, density."
+      - skill: smoke-check
+        when: "Run a locale-aware smoke pass before shipping."
+
+  architecture-bootstrap:
+    purpose: "Set up architecture once enough PRDs exist to design against."
+    phases:
+      - skill: map-systems
+        when: "Decompose the concept into systems and dependencies."
+      - skill: review-all-prds
+        when: "Cross-PRD review before architecture freezes assumptions."
+      - skill: create-architecture
+        when: "Author the master architecture doc and Required ADR list."
+      - skill: architecture-review
+        when: "Validate coverage, conflicts, and framework consistency."
+      - skill: create-control-manifest
+        when: "Distil accepted ADRs into a flat programmer rules sheet."
+      - skill: create-epics
+        when: "Translate the architecture into epics per module."
+
+  qa-cycle:
+    purpose: "Run the QA cycle from plan through evidence-backed sign-off."
+    phases:
+      - skill: qa-plan
+        when: "Classify stories by test type; define automated + manual scope."
+      - skill: team-qa
+        when: "Coordinate qa-lead and qa-tester through the cycle."
+      - skill: test-evidence-review
+        when: "Quality review of test files and manual evidence per story."
+      - skill: smoke-check
+        when: "Run critical-path smoke before sign-off."
+      - skill: soak-test
+        when: "Generate and run an extended-session soak protocol."
+
+  sprint-cycle:
+    purpose: "Run a single sprint from kickoff through retrospective."
+    phases:
+      - skill: sprint-plan
+        when: "Author or update the sprint plan against capacity."
+      - skill: sprint-status
+        when: "Mid-sprint status read — burndown, blockers, risks."
+      - skill: scope-check
+        when: "Catch scope creep before it consumes the sprint."
+      - skill: milestone-review
+        when: "If the sprint closes a milestone, run the milestone gate."
+      - skill: retrospective
+        when: "Capture what worked and what to change next sprint."
+
+  onboarding:
+    purpose: "Bring a new project, contributor, or session up to speed."
+    phases:
+      - skill: start
+        when: "First-time onboarding — classify the user and route them."
+      - skill: adopt
+        when: "Brownfield audit and migration plan if joining mid-flight."
+      - skill: onboard
+        when: "Generate a contextual onboarding doc for the contributor's role."
+      - skill: setup-framework
+        when: "Pin the framework and populate the framework reference."
